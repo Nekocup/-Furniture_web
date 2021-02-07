@@ -2,15 +2,13 @@
   <div class="outer">
     <div class="content">
       <div class="title">
-        <h3>My Project</h3>
+        <h4>My Project</h4>
         <h1>This is title.</h1>
       </div>
       <div class="detail">
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-          maiores explicabo laudantium dolorem maxime temporibus quisquam nulla,
-          eos voluptas ad, molestias impedit ducimus ab rerum minima
-          necessitatibus sint pariatur magnam?
+          maiores explicabo laudantium dolorem maxime temporibus quisquam nulla.
         </p>
         <div class="more">
           <p>more</p>
@@ -133,15 +131,42 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.more {
+  cursor: pointer;
+  width: 135px;
+  padding-top: 1em;
+  p {
+    display: inline-block;
+    transition: color 0.4s;
+  }
+  &:hover > p {
+    color: #afb2b2;
+  }
+  .line {
+    display: inline-block;
+    height: 1px;
+    width: 60px;
+    margin: 4px 15px;
+    background: $fontColor;
+    transition: transform 0.4s, background-color 0.4s;
+  }
+  &:hover > .line {
+    transform: translateX(-5px);
+    background: #afb2b2;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .outer {
   position: relative;
   width: 100%;
-  padding-top: 80px;
   box-sizing: border-box;
+  padding-top: 80px;
   height: 600px;
 }
 .inner {
+  z-index: -1;
   top: 0;
   position: absolute;
   display: flex;
@@ -155,7 +180,6 @@ export default {
     object-fit: cover;
     transition: opacity 1s;
   }
-  z-index: -1;
 }
 // banner 內容
 .content {
@@ -165,36 +189,16 @@ export default {
     line-height: 60px;
     padding-bottom: 10px;
   }
-  h3 {
+  h4 {
     line-height: 30px;
   }
+  .title {
+    z-index: 2;
+  }
   .detail {
+    z-index: 2;
     p {
       line-height: 24px;
-    }
-  }
-  .more {
-    cursor: pointer;
-    width: 135px;
-    padding-top: 1em;
-    p {
-      display: inline-block;
-      transition: color 0.4s;
-    }
-    &:hover > p {
-      color: #afb2b2;
-    }
-    .line {
-      display: inline-block;
-      height: 1px;
-      width: 60px;
-      margin: 4px 15px;
-      background: $fontColor;
-      transition: transform 0.4s, background-color 0.4s;
-    }
-    &:hover > .line {
-      transform: translateX(-5px);
-      background: #afb2b2;
     }
   }
 }
@@ -203,6 +207,7 @@ export default {
   padding: 0 2em;
 }
 .swiper-pagination {
+  z-index: 2;
   position: absolute;
   width: 90px;
   height: 10px;
@@ -283,31 +288,32 @@ export default {
 @media screen and (min-width: 1201px) {
   .outer {
     position: absolute;
-    width: 50%;
+    width: 60%;
     left: 200px;
   }
   .title {
     position: absolute;
-    width: 800px;
-    top: 200px;
-    right: -500px;
+    top: 300px;
+    right: -10px;
   }
   .detail {
     position: absolute;
-    width: 700px;
-    top: 320px;
-    right: -400px;
+    width: 600px;
+    top: 420px;
+    right: -250px;
   }
 }
 @media screen and (min-width: 1600px) {
   .outer {
-    box-sizing: border-box;
     height: 100vh;
     width: 60%;
   }
   .content {
-    .title h1 {
-      font-size: 80px;
+    .title {
+      right: -100px;
+      h1 {
+        font-size: 80px;
+      }
     }
   }
 }

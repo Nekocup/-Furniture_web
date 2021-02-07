@@ -18,9 +18,14 @@
       </div>
       <div class="nav-content" :class="leftNav">
         <ul>
-          <li>about</li>
-          <li>gallery</li>
-          <li>contact</li>
+          <li
+            @click="moveScroll('.section1')"
+            :class="{ 'nav-content-light': navLight[0] }"
+          >
+            about
+          </li>
+          <li :class="{ 'nav-content-light': navLight[1] }">gallery</li>
+          <li :class="{ 'nav-content-light': navLight[2] }">contact</li>
         </ul>
         <img
           src="@/assets/icon/close.svg"
@@ -32,10 +37,13 @@
     <div class="swiper">
       <swiper></swiper>
     </div>
+    <!-- 撐出空間給section1 -->
+    <div class="space"></div>
   </header>
 </template>
+
 <script>
-import swiper from "@/components/swiper";
+import swiper from "@/page/swiper";
 
 export default {
   data() {
@@ -44,6 +52,7 @@ export default {
         navHidden: false,
       },
       scrollOnTop: true,
+      navLight: [1, 0, 0],
     };
   },
   components: {
@@ -53,18 +62,28 @@ export default {
     handleLeftBar() {
       this.leftNav.navHidden = !this.leftNav.navHidden;
     },
-    listenScroll(height) {
-      this.scrollOnTop = height >= 36 ? false : true;
+    moveScroll(name) {
+      let destination = document.querySelector(name).offsetTop;
+      window.scrollTo({
+        top: destination,
+        behavior: "smooth",
+      });
     },
   },
   mounted() {
     window.addEventListener("scroll", () => {
-      this.$options.methods.listenScroll.bind(this)(window.pageYOffset);
+      // 選單欄離開最頂部
+      let scrollTop =
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
+      this.scrollOnTop = scrollTop >= 36 ? false : true;
+      // 左側選單欄高亮 .....
     });
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .nav-top {
   width: 100%;
   background: $mainBg;
@@ -207,11 +226,14 @@ export default {
     display: none;
   }
 }
+.nav-content-light {
+  color: rgba($fontColor, 0.6);
+}
 .swiper {
   width: 100%;
   padding-top: 59.45px;
+  z-index: 9;
 }
-
 .hambuger {
   position: absolute;
   top: 11.7px;
@@ -272,9 +294,9 @@ export default {
   .scrollOnTop {
     position: absolute;
     background: transparent;
-    z-index: -1;
     height: 800px;
     box-shadow: 0 0 0 transparent;
+    z-index: 1;
     > img {
       padding: 4em;
       width: 70px;
@@ -291,6 +313,14 @@ export default {
     .nar-bar-right {
       padding: 30px;
     }
+  }
+  .space {
+    height: 800px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .space {
+    height: 100vh;
   }
 }
 // 點擊顯示左邊選單欄, 一下要放下面
