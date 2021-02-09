@@ -53,22 +53,24 @@ import animatedInteger from "@/components/animatedInteger";
 
 let checkTransition = function () {
   const $about = document.querySelector(".section1 .first");
+  const $counter = document.querySelector(".section1 .counter");
   let spaceHeight = document.querySelector("header").offsetHeight;
   // 取得目前高度
   let scrollTop =
     document.documentElement.scrollTop ||
-    // Sarfari
     window.pageYOffset ||
     document.body.scrollTop;
-  let totalHeight = scrollTop + spaceHeight / 2;
+  let totalHeight = scrollTop + spaceHeight / 1.2;
   if (totalHeight >= $about.offsetTop) {
     this.leftHidden = false;
+  }
+  if (totalHeight >= $counter.offsetTop) {
     this.rightHidden = false;
-    this.pass = false;
     this.counter.projects = 560;
     this.counter.employees = 50;
     this.counter.contractors = 250;
     this.counter.clients = 150;
+    this.pass = false;
   }
 };
 export default {
@@ -124,11 +126,11 @@ export default {
 }
 .leftHidden {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-60px);
 }
 .rightHidden {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(60px);
 }
 // 大字下的副標題
 .sub-title {
@@ -156,10 +158,10 @@ export default {
   }
 }
 .first {
-  transition: opacity 0.8s, transform 0.8s;
+  transition: opacity 0.6s, transform 0.6s;
 }
 .counter {
-  transition: opacity 0.8s, transform 0.8s;
+  transition: opacity 1.2s, transform 1.4s;
 }
 @media screen and (min-width: 591px) {
   .section1 {
@@ -190,6 +192,9 @@ export default {
     .sub-title {
       left: 88px;
       top: 70px;
+      h2 {
+        font-size: 48px;
+      }
     }
   }
 }

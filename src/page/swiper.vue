@@ -294,13 +294,16 @@ export default {
   .title {
     position: absolute;
     top: 300px;
-    right: -10px;
+    right: -130px;
+    h1 {
+      font-size: 78px;
+    }
   }
   .detail {
     position: absolute;
     width: 600px;
     top: 420px;
-    right: -250px;
+    right: -310px;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -310,10 +313,14 @@ export default {
   }
   .content {
     .title {
-      right: -100px;
+      right: -242px;
       h1 {
-        font-size: 80px;
+        font-size: 100px;
       }
+    }
+    .detail {
+      right: -400px;
+      width: 700px;
     }
   }
 }

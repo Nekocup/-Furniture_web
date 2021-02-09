@@ -24,8 +24,18 @@
           >
             about
           </li>
-          <li :class="{ 'nav-content-light': navLight[1] }">gallery</li>
-          <li :class="{ 'nav-content-light': navLight[2] }">contact</li>
+          <li
+            @click="moveScroll('.section2')"
+            :class="{ 'nav-content-light': navLight[1] }"
+          >
+            gallery
+          </li>
+          <li
+            @click="moveScroll('.section3')"
+            :class="{ 'nav-content-light': navLight[2] }"
+          >
+            contact
+          </li>
         </ul>
         <img
           src="@/assets/icon/close.svg"
@@ -71,6 +81,7 @@ export default {
     },
   },
   mounted() {
+    let $section2 = document.querySelector(".section2");
     window.addEventListener("scroll", () => {
       // 選單欄離開最頂部
       let scrollTop =
@@ -78,7 +89,12 @@ export default {
         window.pageYOffset ||
         document.body.scrollTop;
       this.scrollOnTop = scrollTop >= 36 ? false : true;
-      // 左側選單欄高亮 .....
+      // 左側選單欄高亮 ......
+      if (scrollTop >= $section2.offsetTop) {
+        this.navLight = [0, 1, 0];
+      } else {
+        this.navLight = [1, 0, 0];
+      }
     });
   },
 };
@@ -220,6 +236,7 @@ export default {
       &:hover {
         background-color: #595967;
       }
+      transition: color 0.3s;
     }
   }
   > img {
