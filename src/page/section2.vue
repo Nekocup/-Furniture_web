@@ -91,7 +91,7 @@ const checkSection2 = function () {
     document.documentElement.scrollTop ||
     window.pageYOffset ||
     document.body.scrollTop;
-  let totalHeight = scrollTop + spaceHeight;
+  let totalHeight = scrollTop + spaceHeight - 100;
   this.pics.pic1 = totalHeight >= $pic1.offsetTop ? false : this.pics.pic1;
   this.pics.pic2 = totalHeight >= $pic2.offsetTop ? false : this.pics.pic2;
   this.pics.pic3 = totalHeight >= $pic3.offsetTop ? false : this.pics.pic3;
@@ -204,11 +204,11 @@ export default {
   }
 }
 .leftHide {
-  transform: translateX(-30px);
+  transform: translateX(-50%);
   opacity: 0;
 }
 .rightHide {
-  transform: translateX(30px);
+  transform: translateX(50%);
   opacity: 0;
 }
 .focusPicHide {

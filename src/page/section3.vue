@@ -1,6 +1,6 @@
 <template>
   <div class="section3">
-    <section>
+    <section :class="{ leftHide }">
       <div class="title">
         <h2>SPECIAL</h2>
         <h3>OFFER</h3>
@@ -29,7 +29,7 @@
       </div>
       <a><h4>GET DISCOUNT →</h4></a>
     </section>
-    <section>
+    <section :class="{ rightHide }">
       <div class="goods">
         <img src="@/assets/img/section3/chair.png" alt="" />
       </div>
@@ -37,6 +37,18 @@
   </div>
 </template>
 <script>
+let checkHide = function () {
+  let $sec1 = document.querySelector(".section3 section:first-child");
+  let $sec2 = document.querySelector(".section3 section:last-child");
+  let spaceHeight = document.querySelector("header").offsetHeight;
+  let scrollTop =
+    document.documentElement.scrollTop ||
+    window.pageYOffset ||
+    document.body.scrollTop;
+  let totalHieght = scrollTop + spaceHeight - 100;
+  this.leftHide = totalHieght >= $sec1.offsetTop ? false : this.leftHide;
+  this.rightHide = totalHieght >= $sec2.offsetTop ? false : this.rightHide;
+};
 export default {
   data() {
     return {
@@ -44,6 +56,8 @@ export default {
       hours: 15,
       minutes: 55,
       seconds: 59,
+      leftHide: true,
+      rightHide: true,
     };
   },
   mounted() {
@@ -69,12 +83,19 @@ export default {
         clearInterval(saletime);
       }
     }, 1000);
+    addEventListener("scroll", () => {
+      checkHide.apply(this);
+    });
   },
 };
 </script>
 <style lang="scss">
 .section3 {
   color: $fontColor;
+  > section {
+    position: relative;
+    transition: transform 1s, opacity 1s;
+  }
   section:first-child {
     padding: 60px 30px;
   }
@@ -127,6 +148,14 @@ export default {
   }
 }
 
+.leftHide {
+  transform: translateX(-50%);
+  opacity: 0;
+}
+.rightHide {
+  transform: translateX(50%);
+  opacity: 0;
+}
 @media screen and (min-width: 576px) {
   .section3 {
     section:first-child {
