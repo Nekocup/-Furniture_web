@@ -7,7 +7,7 @@
 * 在 Safari 裡面 overflow-x:hidden 無效
   * 需要搭配 `html, body { position:relative; }` 才行
 * 部分瀏覽器不支援 DOM 的 scrollTop
-需要使用
+  * 需要使用
 `      let scrollTop =
         document.documentElement.scrollTop ||
         window.pageYOffset ||
