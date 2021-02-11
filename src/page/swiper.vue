@@ -166,7 +166,6 @@ export default {
   height: 600px;
 }
 .inner {
-  z-index: -1;
   top: 0;
   position: absolute;
   display: flex;
@@ -193,9 +192,11 @@ export default {
     line-height: 30px;
   }
   .title {
+    position: relative;
     z-index: 2;
   }
   .detail {
+    position: relative;
     z-index: 2;
     p {
       line-height: 24px;
@@ -293,17 +294,17 @@ export default {
   }
   .title {
     position: absolute;
-    top: 300px;
-    right: -130px;
+    top: 200px;
+    left: 70%;
     h1 {
       font-size: 78px;
     }
   }
   .detail {
     position: absolute;
-    width: 600px;
-    top: 420px;
-    right: -310px;
+    width: 500px;
+    top: 200px;
+    left: 70%;
   }
 }
 @media screen and (min-width: 1600px) {

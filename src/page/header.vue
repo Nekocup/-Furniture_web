@@ -252,7 +252,6 @@ export default {
 .swiper {
   width: 100%;
   padding-top: 59.45px;
-  z-index: 9;
 }
 .hambuger {
   position: absolute;

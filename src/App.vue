@@ -27,7 +27,9 @@ export default {
 </script>
 
 <style lang="scss">
-body {
+body,
+html {
+  position: relative;
   overflow-x: hidden;
   background: $mainBg;
 }
