@@ -124,7 +124,7 @@ footer {
     }
   }
   section:last-child {
-    padding: 70px 30px;
+    padding: 90px 30px;
     background: #0f0f12;
     text-align: center;
     h4 {
@@ -137,7 +137,8 @@ footer {
 }
 .album {
   display: flex;
-  padding-top: 100px;
+  padding-top: 65px;
+  justify-content: center;
   img {
     cursor: pointer;
     width: 50px;
@@ -170,6 +171,9 @@ footer {
       }
       height: 400px;
     }
+  }
+  .album {
+    justify-content: start;
   }
 }
 @media screen and (min-width: 1500px) {
