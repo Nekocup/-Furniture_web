@@ -3,3 +3,6 @@
 ## 使用的技術
 * vue
 * swiper
+## 採雷 ...
+* Safari overflow-x:hidden 無效
+  * 需要搭配 `html, body { position:relative; }` 才行
