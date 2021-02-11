@@ -242,11 +242,11 @@ export default {
   h4 {
     position: absolute;
     top: 40px;
-    right: 20px;
+    right: 0px;
     color: rgba($color: $fontColor, $alpha: 0.5);
   }
   h4:last-child {
-    right: -15px;
+    right: -30px;
   }
 }
 @media screen and (max-width: 300px) {
