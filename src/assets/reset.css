@@ -45,3 +45,6 @@ table {
 a {
 	text-decoration: none;
 }
+input:focus::placeholder{
+	color: transparent;
+}

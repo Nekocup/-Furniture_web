@@ -165,7 +165,7 @@ export default {
     width: 100%;
     height: 100%;
   }
-  transition: transform 0.6s, opacity 0.6s;
+  transition: transform 1.2s, opacity 1.2s;
 }
 
 // 放大鏡圖案

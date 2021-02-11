@@ -126,11 +126,11 @@ export default {
 }
 .leftHidden {
   opacity: 0;
-  transform: translateX(-60px);
+  transform: translateX(-50%);
 }
 .rightHidden {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateX(50%);
 }
 // 大字下的副標題
 .sub-title {
@@ -158,10 +158,10 @@ export default {
   }
 }
 .first {
-  transition: opacity 0.6s, transform 0.6s;
+  transition: opacity 1.2s, transform 1.2s;
 }
 .counter {
-  transition: opacity 1.2s, transform 1.4s;
+  transition: opacity 2s, transform 2s;
 }
 @media screen and (min-width: 591px) {
   .section1 {

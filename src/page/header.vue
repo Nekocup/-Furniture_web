@@ -31,7 +31,7 @@
             gallery
           </li>
           <li
-            @click="moveScroll('.section3')"
+            @click="moveScroll('footer')"
             :class="{ 'nav-content-light': navLight[2] }"
           >
             contact
@@ -82,6 +82,7 @@ export default {
   },
   mounted() {
     let $section2 = document.querySelector(".section2");
+    let $footer = document.querySelector("footer");
     window.addEventListener("scroll", () => {
       // 選單欄離開最頂部
       let scrollTop =
@@ -90,10 +91,12 @@ export default {
         document.body.scrollTop;
       this.scrollOnTop = scrollTop >= 36 ? false : true;
       // 左側選單欄高亮 ......
+      this.navLight = [1, 0, 0];
       if (scrollTop >= $section2.offsetTop) {
         this.navLight = [0, 1, 0];
-      } else {
-        this.navLight = [1, 0, 0];
+      }
+      if (scrollTop >= $footer.offsetTop) {
+        this.navLight = [0, 0, 1];
       }
     });
   },

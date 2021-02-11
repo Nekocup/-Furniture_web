@@ -4,6 +4,7 @@
     <section1></section1>
     <section2></section2>
     <section3></section3>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Header from "@/page/header";
 import section1 from "@/page/section1";
 import section2 from "@/page/section2";
 import section3 from "@/page/section3";
+import Footer from "@/page/footer";
 export default {
   name: "App",
   components: {
@@ -19,6 +21,7 @@ export default {
     section1,
     section2,
     section3,
+    Footer,
   },
 };
 </script>
